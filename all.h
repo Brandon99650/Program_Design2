@@ -6,3 +6,5 @@ void link_build(int A[],int n,int m,int b[]);
 int comp(const void *a,const void *b);
 void hash(int A[],int n,int m,int b[]);
 int hashcode(int a);
+struct tnode *BTS_Insert(struct tnode *T, int key);
+struct tnode *BTS_find(struct tnode *T, int key);

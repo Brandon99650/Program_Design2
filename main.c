@@ -69,8 +69,36 @@ for(int i=6;i<=argc;i++){
 
     }
     if(strcmp(argv[i-1],"-bst")==0){
+    struct tnode{
+    int *key;
+    struct tnode *Lchild;
+    struct tnode *Rchild;
+    };
 
+    struct tnode *tree=(struct tnode *) malloc(sizeof(struct tnode));
+    struct tnode *query=(struct tnode *) malloc(sizeof(struct tnode));
+    char x[10];
+    tree = NULL;//
+    gettimeofday(&first,NULL);
+    for(int i=0;i<n;i++){
+        tree = BTS_Insert(tree, buf[i]);
+        //printf("asdfghjk\n");
+    }
+    gettimeofday(&end,NULL);
 
+    diff = 1000000 * (end.tv_sec-first.tv_sec)+ end.tv_usec-first.tv_usec;
+        printf("bst:\n");
+        printf("building time: %ld sec\n",diff);
+        gettimeofday(&first,NULL);
+        for(int i=0;i<m;i++){
+            query=BTS_find(tree,ptr[i]);
+        //printf("asdfghjk\n");
+    }
+        gettimeofday(&end,NULL);
+    diff = 1000000 * (end.tv_sec-first.tv_sec)+ end.tv_usec-first.tv_usec;
+        printf("query time: %ld sec\n",diff);
+        printf("\n");
+        printf("\n");
 
     }
     if(strcmp(argv[i-1],"-hash")==0){
